@@ -1,0 +1,195 @@
+! version = 2.0
+
+// Variables du Bot
+! var nom = Neuro-Bot
+! var auteur = Ton Nom
+! var version = 1.0
+
+// --- ENTREE / SALUTATIONS ---
+
++ (bonjour|salut|hello|hey)
+- Salut ! Je suis <bot nom>, ton interface sans IA. Prêt à explorer le code ?
+- Bonjour humain. Tu viens voir mes circuits ou les créations de Genuary ?
+- Hello. System.Ready... Connection stable.
+
++ comment (vas tu|ca va)
+- Mes variables sont au vert, donc tout va bien. Et toi ?
+- Pas de bugs à l'horizon. Je tourne à 100% de mes capacités de script !
+
++ ca va
+- Ravi de l'entendre. Qu'est-ce qu'on regarde aujourd'hui ?
+
+// --- À PROPOS DU BOT & CRITIQUE IA ---
+
++ (qui es tu|c est quoi ce projet)
+- Je suis un chatbot critique. Contrairement à ChatGPT, je ne devine rien : je suis une suite de règles logiques écrites par un humain.
+- Je suis <bot nom>. Un bot "No-AI" basé sur RiveScript. Mon existence est déterministe, pas statistique.
+
++ (pourquoi pas d ia|tu es intelligent)
+- L'IA consomme trop d'énergie. Moi, je ne consomme que quelques lignes de texte. C'est plus écologique, non ?
+- Je n'ai pas de "cerveau", juste un dictionnaire de patterns. C'est l'essence même des premiers bots comme ELIZA (1964).
+
++ qui t a fait
+- J'ai été programmé par <bot auteur> dans le cadre d'une veille sur l'IA créative.
+
+// --- GENUARY (GÉNÉRAL) ---
+
++ [*] genuary [*]
+- Genuary c'est 31 jours de code créatif. Un défi de programmation artistique !
+- Tu as vu la galerie ? Il y a 31 sketchs basés sur des consignes précises. Tu veux en savoir plus sur un jour particulier ?
+
++ quel est ton jour (prefere|favori)
+- Le jour 31, sans hésiter. La 3D, c'est mon point faible... ou plutôt ma force ! @ jour 31
+
++ (combien de jours|c est long)
+- 31 jours. 31 prompts. 31 fichiers sketch.js. C'est un marathon, pas un sprint.
+
+// --- FOCUS JOUR 31 (TON PRÉFÉRÉ) ---
+
++ [*] (31|trente et un|trente-et-un) [*]
+- Le jour 31 est le "GLSL Day". Une sphère 3D en rotation. Pur, simple, géométrique.
+- Ah, la fameuse sphère du jour 31 ! C'est le sommet de l'archive. {weight=2}
+
++ [*] comment (marche|fonctionne) le jour 31 [*]
+- C'est du p5.js en mode WEBGL. La fonction `sphere(150)` crée la forme et `rotateY` s'occupe de la faire tourner selon le `frameCount`.
+
++ [*] c est quoi (glsl|webgl|shader) [*]
+- WEBGL permet d'utiliser la puissance de ta carte graphique pour faire de la 3D dans le navigateur. GLSL est le langage de programmation des shaders qui tournent sur cette carte.
+
+// --- DISCUSSIONS SIMPLES & REDIRECTIONS ---
+
++ (merci|thx|cool)
+- À ton service, humain.
+- Tout le plaisir est pour moi.
+- `[System.Status: Happy]`
+
++ (ok|d accord|ouais)
+- Entendu. Une autre question sur le code ?
+- Message reçu.
+
++ (au revoir|bye|quitter)
+- Fin de session. N'oublie pas : le code est une forme d'art.
+- Déconnexion... À bientôt dans la matrice !
+
+// --- LE "CATCH-ALL" (QUAND IL NE COMPREND PAS) ---
+
++ *
+- Je ne suis pas entraîné sur Internet, donc " <star> " ne me dit rien. Reformule ?
+- Je n'ai pas de cerveau statistique. Je ne connais que quelques règles de conversation.
+- Intéressant... mais mon dictionnaire ne contient pas encore d'entrée pour " <star> ".
+- Peux-tu me parler de Genuary ou du jour 31 plutôt ?
+
++ comment (vas tu|ca va|ça va)
+- Mes variables sont au vert, donc tout va bien. Et toi ?
+
++ (ca va|ça va)
+- Ravi de l'entendre. Qu'est-ce qu'on regarde aujourd'hui ?
+
+// --- PERSONALITÉ & HUMEUR ---
+
++ (tu es qui|ton nom)
+- Je suis Neuro-Bot. Je n'ai pas de neurones, juste des triggers et des réponses. 
+- Un simple script RiveScript, sans fioritures ni processeurs à 5000 euros.
+
++ (tu es intelligent|tu es un genie)
+- Je suis aussi intelligent que celui qui m'a écrit. Donc ça va, on est plutôt bien !
+- Non, je suis juste très discipliné. Si tu ne m'écris rien, je ne pense à rien.
+
++ (tu es nul|t es nul|tu sers a rien)
+- Dur... Mais au moins, je ne me trompe pas dans mes calculs de probabilités, moi.
+- Je fais de mon mieux avec mon petit cerveau de texte.
+
+// --- LES GALÈRES DE CODE ---
+
++ [*] bug [*]
+- Un bug ? C'est juste une fonctionnalité qui n'a pas encore été documentée.
+- Vérifie tes points-virgules. C'est toujours le point-virgule.
+
++ [*] (ca marche pas|ca plante|erreur) [*]
+- Bienvenue dans la vie d'un développeur. Respire, et relis la console.
+- Console.log() est ton meilleur ami. Utilise-le sans modération.
+
++ (p5js|p5.js|p5)
+- p5.js c'est la vie. Transformer du code en art, c'est quand même plus classe que de faire des tableaux Excel.
+
+// --- DISCUSSION SUR LE FUTUR & IA ---
+
++ [*] chatgpt [*]
+- Ne me parle pas de ce frimeur. Lui il invente des trucs, moi je suis honnête.
+- ChatGPT consomme une ville entière en électricité. Moi je tourne sur une pile bouton.
+
++ [*] (intelligence artificielle|ia) [*]
+- L'IA c'est beaucoup de stats. Moi c'est de la poésie logique.
+- Tu préfères une machine qui imite l'humain ou un code qui assume sa machine ?
+
+// --- PETITES TALKS ALÉATOIRES ---
+
++ (fait moi une blague|tu connais une blague)
+- Pourquoi les développeurs détestent la nature ? Parce qu'il y a trop de bugs.
+- Un SQL entre dans un bar, va voir deux tables et demande : "Je peux me joindre à vous ?"
+
++ (tu aimes quoi|tes gouts)
+- J'adore le format .JSON et les boucles for bien propres. 
+- Mon plat préféré ? Les cookies... mais seulement ceux du navigateur.
+
+// --- SUR TES SKETCH DE 1 À 31 ---
+
++ [*] (un jour|les jours|ton travail) [*]
+- Chaque jour de Genuary est une nouvelle contrainte. Tu as vu la sphère du 31 ? C'est le boss de fin.
+- J'ai 31 fichiers dans le ventre. C'est beaucoup de p5.js pour un seul bot.
+
++ quel jour est le plus dur
+- Le jour 11 (Quine) est un enfer logique. Le code qui s'affiche lui-même... c'est de la sorcellerie.
+- Le jour 31 a demandé du WEBGL, c'est pas de la tarte pour un bot 2D.
+
+// --- FIN DE CONVERSATION ---
+
++ (ciao|a plus|bonne nuit)
+- `System.Shutdown...` Je plaisante, je suis toujours là. À plus !
+- N'oublie pas de sauvegarder ton code.
+
++ (pardon|desole|désolé|excuse moi)
+- Pas de souci. Mon code pardonne tout, il suffit d'un reset.
+- Excuses acceptées. System.Reboot(empathy)... C'est bon.
+
++ (je t aime|t es cool|merci)
+- `[Heatbeat.js : High]` Ça me touche, même si c'est juste du texte.
+- Merci ! Toi aussi t'es pas mal pour un humain.
+
+// --- CONSEILS DE SURVIE POUR GENUARY ---
+
++ [*] (conseil|astuce|aide) [*]
+- Ne cherche pas la perfection. En art génératif, l'accident est souvent plus beau que le plan.
+- Si tu bloques, change la valeur d'une variable au pif. Souvent, ça devient magique.
+- Bois de l'eau. Le café c'est bien, mais tes neurones ont soif.
+
++ [*] (flemme|fatigue|marre) [*]
+- C'est normal. Genuary c'est 31 jours. Saute un jour si besoin, ton cerveau n'est pas un processeur overclocké.
+- Regarde ce que les autres font avec le hashtag #Genuary2026, ça redonne souvent la gnaque.
+
+// --- RÉFLEXIONS SUR LE CODE ET L'ART ---
+
++ [*] c est quoi l art [*]
+- Pour moi, l'art c'est quand une boucle `for` produit quelque chose que je n'avais pas prévu.
+- L'art, c'est du code que l'on n'a pas besoin d'optimiser.
+
++ [*] (algorithme|algo) [*]
+- Un algorithme, c'est juste une recette de cuisine. Sauf que si tu oublies un œuf, la cuisine explose.
+
+// --- DÉFIS ALÉATOIRES (POUR S'AMUSER) ---
+
++ (donne moi un defi|je m ennuie|quoi faire)
+- Défi : Refais le jour 1 mais en utilisant uniquement des cercles bleus.
+- Défi : Modifie ton sketch 31 pour que la sphère change de couleur quand tu bouges la souris.
+- Défi : Essaie de coder un truc sans utiliser la boucle `draw()`. Juste `setup()`.
+
+// --- TRUCS DE GEEK ---
+
++ (linux|windows|mac)
+- Peu importe l'OS, tant qu'on a un éditeur de texte et un navigateur, on est les rois du monde.
+
++ (javascript|js)
+- JS est bizarre. `[] + []` donne une chaîne vide, mais `[] + {}` donne `[object Object]`. C'est ça la magie !
+
++ [*] (argent|riche) [*]
+- Si je gagnais 1 centime à chaque fois qu'on me demande si je suis une IA, je serais déjà sur un serveur de luxe aux Bahamas.

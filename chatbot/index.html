@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Neural Chatbot - Critical AI</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+    <script src="https://unpkg.com/rivescript@latest/dist/rivescript.min.js"></script>
+    <style>
+        :root {
+            --bg-color: #050505;
+            --card-bg: rgba(255, 255, 255, 0.03);
+            --accent: #00f2ff;
+            --accent-glow: rgba(0, 242, 255, 0.3);
+            --text: #e0e0e0;
+        }
+
+        body { 
+            font-family: 'Segoe UI', Consolas, monospace; 
+            background-color: var(--bg-color);
+            background-image: radial-gradient(circle at 50% 50%, #111 0%, #050505 100%);
+            color: var(--text);
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            overflow: hidden;
+        }
+
+        /* Scanline effect (comme sur Genuary) */
+        body::after {
+            content: " ";
+            position: fixed;
+            top: 0; left: 0;
+            width: 100vw; height: 100vh;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.1) 50%);
+            background-size: 100% 4px;
+            z-index: 1000;
+            pointer-events: none;
+            opacity: 0.3;
+        }
+
+        nav { 
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            z-index: 1001;
+        }
+
+        nav a {
+            color: var(--text);
+            text-decoration: none;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1rem;
+            border: 1px solid rgba(255,255,255,0.2);
+            padding: 8px 15px;
+            border-radius: 4px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            background: var(--accent);
+            color: black;
+            border-color: var(--accent);
+            box-shadow: 0 0 15px var(--accent-glow);
+        }
+
+        #chat-container { 
+            width: 90%;
+            max-width: 600px;
+            background: var(--card-bg); 
+            padding: 30px; 
+            border-radius: 2px; 
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 0 40px rgba(0,0,0,0.5);
+        }
+
+        h2 { 
+            margin-top: 0; 
+            text-transform: uppercase; 
+            letter-spacing: 0.3rem; 
+            font-size: 1.2rem;
+            color: var(--accent);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding-bottom: 15px;
+        }
+
+        #output-div { 
+            height: 400px; 
+            overflow-y: auto; 
+            margin-bottom: 20px; 
+            padding: 10px;
+            scrollbar-width: thin;
+            scrollbar-color: var(--accent) transparent;
+        }
+
+        /* Style des messages */
+        .userConvo { 
+            color: #fff; 
+            text-align: right; 
+            margin: 10px 0; 
+            font-style: italic;
+            border-right: 2px solid var(--accent);
+            padding-right: 10px;
+        }
+
+        .botConvo { 
+            color: var(--accent); 
+            text-align: left; 
+            margin: 10px 0; 
+            background: rgba(0, 242, 255, 0.05);
+            padding: 10px;
+            border-radius: 0 10px 10px 10px;
+            line-height: 1.4;
+        }
+
+        .input-area {
+            display: flex;
+            gap: 10px;
+        }
+
+        input { 
+            flex-grow: 1;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.2);
+            padding: 12px; 
+            color: white;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        input:focus {
+            border-color: var(--accent);
+            background: rgba(255,255,255,0.1);
+        }
+
+        button { 
+            background: transparent;
+            color: var(--accent);
+            border: 1px solid var(--accent);
+            padding: 10px 20px; 
+            cursor: pointer; 
+            text-transform: uppercase;
+            letter-spacing: 0.1rem;
+            transition: 0.3s;
+        }
+
+        button:hover { 
+            background: var(--accent); 
+            color: black;
+            box-shadow: 0 0 15px var(--accent-glow);
+        }
+
+        /* Custom Scrollbar */
+        #output-div::-webkit-scrollbar { width: 4px; }
+        #output-div::-webkit-scrollbar-thumb { background: var(--accent); }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="genuary.html">← Genuary Archive</a>
+    </nav>
+    
+    <div id="chat-container">
+        <h2>No-AI Neural Interface v1.0</h2>
+        <div id="output-div"></div>
+        <div class="input-area">
+            <input type="text" id="user-input" placeholder="Saisir commande..." autocomplete="off">
+            <button id="send-btn">Envoyer</button>
+        </div>
+    </div>
+
+    <script src="sketch.js"></script>
+</body>
+</html>

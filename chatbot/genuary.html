@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Genuary 2026 - Neural Archive</title>
+    <style>
+        :root {
+            --bg-color: #050505;
+            --card-bg: rgba(255, 255, 255, 0.03);
+            --accent: #00f2ff;
+            --accent-glow: rgba(0, 242, 255, 0.4);
+            --text: #e0e0e0;
+        }
+
+        body { 
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; 
+            background-color: var(--bg-color);
+            background-image: radial-gradient(circle at 50% 50%, #111 0%, #050505 100%);
+            color: var(--text);
+            max-width: 1200px; 
+            margin: 0 auto; 
+            padding: 40px 20px;
+            min-height: 100vh;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            letter-spacing: 0.8rem;
+            text-transform: uppercase;
+            margin-bottom: 0;
+            background: linear-gradient(to right, #fff, var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 900;
+        }
+
+        .subtitle {
+            color: var(--accent);
+            letter-spacing: 0.3rem;
+            margin-bottom: 50px;
+            font-size: 0.8rem;
+            opacity: 0.7;
+        }
+
+        nav { margin-bottom: 40px; text-align: left; }
+        nav a {
+            color: var(--text);
+            text-decoration: none;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1rem;
+            border: 1px solid rgba(255,255,255,0.2);
+            padding: 8px 15px;
+            border-radius: 4px;
+            transition: 0.3s;
+        }
+        nav a:hover { background: var(--accent); color: #000; border-color: var(--accent); }
+
+        .grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); 
+            gap: 20px; 
+        }
+
+        .day-link { 
+            position: relative;
+            padding: 25px 15px; 
+            background: var(--card-bg); 
+            color: var(--text); 
+            text-decoration: none; 
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.4s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            backdrop-filter: blur(5px);
+            min-height: 160px;
+            justify-content: flex-start;
+        }
+
+        .day-link:hover { 
+            background: rgba(0, 242, 255, 0.05);
+            border-color: var(--accent);
+            box-shadow: 0 0 25px var(--accent-glow);
+            transform: translateY(-5px);
+        }
+
+        .day-number {
+            font-size: 2.2rem;
+            font-weight: 900;
+            color: var(--accent);
+            line-height: 1;
+            margin-bottom: 10px;
+        }
+
+        .day-prompt {
+            font-size: 0.7rem;
+            line-height: 1.4;
+            opacity: 0.6;
+            text-transform: uppercase;
+            letter-spacing: 0.05rem;
+            text-align: center;
+            display: -webkit-box;
+            -webkit-line-clamp: 4; /* Limite à 4 lignes pour garder la grille propre */
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        /* Scanline effect */
+        body::after {
+            content: " ";
+            position: fixed;
+            top: 0; left: 0;
+            width: 100vw; height: 100vh;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.1) 50%);
+            background-size: 100% 4px;
+            z-index: 1000;
+            pointer-events: none;
+            opacity: 0.3;
+        }
+    </style>
+</head>
+<body>
+    <nav><a href="index.html">← Interface Chatbot</a></nav>
+    
+    <h1>Genuary 2026</h1>
+    <p class="subtitle">DATA_ARCHIVE // 31_DAYS_OF_CODE</p>
+
+    <div class="grid" id="genuary-grid"></div>
+
+    <script>
+        const prompts = [
+            "One color, one shape.",
+            "Twelve principles of animation.",
+            "Fibonacci forever.",
+            "Lowres.",
+            "Write “Genuary”. Avoid using a font.",
+            "Lights on/off.",
+            "Boolean algebra.",
+            "A City.",
+            "Crazy automaton.",
+            "Polar coordinates.",
+            "Quine.",
+            "Boxes only.",
+            "Self portrait.",
+            "Everything fits perfectly.",
+            "Invisible object / only shadows.",
+            "Order and disorder.",
+            "Wallpaper group.",
+            "Unexpected path.",
+            "16x16",
+            "One line.",
+            "Bauhaus Poster.",
+            "Pen plotter ready.",
+            "Transparency.",
+            "Perfectionist’s nightmare.",
+            "Organic Geometry.",
+            "Recursive Grids.",
+            "Lifeform.",
+            "No libraries, no canvas, only HTML.",
+            "Genetic evolution and mutation.",
+            "Its not a bug, its a feature.",
+            "GLSL day / Sphere 3D"
+        ];
+
+        const grid = document.getElementById('genuary-grid');
+        for (let i = 1; i <= 31; i++) {
+            const link = document.createElement('a');
+            link.href = `viewer.html?day=${i}`; 
+            link.className = 'day-link';
+            
+            link.innerHTML = `
+                <span class="day-number">${i}</span>
+                <span class="day-prompt">${prompts[i-1]}</span>
+            `;
+            grid.appendChild(link);
+        }
+    </script>
+</body>
+</html>
