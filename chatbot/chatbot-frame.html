@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+    <script src="https://unpkg.com/rivescript@latest/dist/rivescript.min.js"></script>
+    <style>
+        body { margin: 0; padding: 10px; background: #000; color: #00f2ff; font-family: monospace; height: 100vh; display: flex; flex-direction: column; box-sizing: border-box; overflow: hidden; }
+        #output-div { flex-grow: 1; overflow-y: auto; margin-bottom: 10px; }
+        .input-wrap { display: flex; gap: 5px; height: 35px; }
+        input { flex-grow: 1; background: #111; border: 1px solid #00f2ff; color: #fff; padding: 5px; outline: none; }
+        button { background: #00f2ff; border: none; padding: 0 15px; cursor: pointer; font-weight: bold; color: #000; }
+        .userConvo { color: #fff; text-align: right; margin: 5px 0; }
+        .botConvo { color: #00f2ff; text-align: left; margin: 5px 0; }
+    </style>
+</head>
+<body>
+    <div id="output-div"></div>
+    <div class="input-wrap">
+        <input type="text" id="user-input" placeholder="Commande..." autocomplete="off">
+        <button id="send-btn">SEND</button>
+    </div>
+
+    <script>
+    let bot = new RiveScript();
+    let submitBtn, userInput, outputDiv;
+
+    function preload() {
+      // Si ton autre page marche avec .rive, garde .rive ici.
+      // Le secret : on force le tri DIRECTEMENT après le chargement.
+      bot.loadFile("dialogue.rive").then(() => {
+          console.log("Fichier chargé.");
+          bot.sortReplies(); 
+      }).catch(err => {
+          console.error("Erreur de chargement:", err);
+      });
+    }
+
+    function setup() {
+      noCanvas(); 
+      outputDiv = select('#output-div');
+      userInput = select('#user-input');
+      submitBtn = select('#send-btn');
+      
+      submitBtn.mousePressed(botChat);
+    }
+
+    // p5.js gère le clavier globalement
+    function keyPressed() {
+      if (keyCode === ENTER) botChat();
+    }
+
+    function botChat() {
+      let input = userInput.value();
+      if (input !== "") {
+        let u = createP("USER > " + input);
+        u.class('userConvo');
+        u.parent(outputDiv);
+        
+        // On force le tri AVANT de demander la réponse (sécurité ultime)
+        bot.sortReplies(); 
+
+        bot.reply("local-user", input).then(function(reply) {
+          let b = createP("BOT > " + reply);
+          b.class('botConvo');
+          b.parent(outputDiv);
+          outputDiv.elt.scrollTop = outputDiv.elt.scrollHeight;
+        });
+        
+        userInput.value(''); 
+      }
+    }
+    </script>
+</body>
+</html>
