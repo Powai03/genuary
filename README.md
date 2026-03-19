@@ -1,4 +1,4 @@
-
+Lancez le projet en live server sur chatbot/genuary.html et découvrez un pokedex de genuary
 JAN. 1 (credit: Piero)
 
 One color, one shape.
