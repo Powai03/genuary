@@ -2,7 +2,7 @@
     --dex-red: #dc0a2d;
     --dex-dark-red: #8b0000;
     --dex-screen-bg: #303030;
-    --dex-glass: #98cb98; /* Couleur GameBoy un peu */
+    --dex-glass: #98cb98; 
     --dex-blue: #28aaff;
 }
 
@@ -25,7 +25,6 @@ body {
     box-shadow: 10px 10px 0px rgba(0,0,0,0.3);
 }
 
-/* Header */
 .pokedex-header {
     display: flex;
     gap: 15px;
@@ -46,7 +45,6 @@ body {
 .light { width: 12px; height: 12px; border-radius: 50%; border: 2px solid #000; }
 .red { background: #ff0000; } .yellow { background: #ffcc00; } .green { background: #00ff00; }
 
-/* Écran */
 .screen-border {
     background: #dedede;
     border: 3px solid #000;
@@ -72,7 +70,6 @@ body {
     padding-bottom: 5px;
 }
 
-/* Grille */
 .grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -83,7 +80,7 @@ body {
 .day-link {
     background: #222;
     border: 1px solid #444;
-    color: #00ff00; /* Texte vert matrix/rétro */
+    color: #00ff00; 
     text-decoration: none;
     padding: 10px;
     font-size: 0.7rem;
@@ -96,7 +93,6 @@ body {
     color: #000;
 }
 
-/* Contrôles */
 .pokedex-controls {
     display: flex;
     justify-content: space-between;

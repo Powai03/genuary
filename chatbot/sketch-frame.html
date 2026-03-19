@@ -9,30 +9,27 @@
     margin: 0;
     padding: 0;
     display: flex;
-    justify-content: center; /* Centre horizontalement */
-    align-items: center;     /* Centre verticalement */
+    justify-content: center; 
+    align-items: center;  
     height: 100vh;
-    background-color: #eee;  /* Ou la couleur de ton choix pour le fond hors-canvas */
+    background-color: #eee; 
     overflow: hidden;
 }
 
 canvas {
-    /* On ne touche pas à la taille en JS, on gère juste l'affichage ici */
     max-width: 100%;
     max-height: 100%;
-    object-fit: contain; /* C'est ÇA qui empêche la déformation */
-    box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Optionnel : petite ombre pour détacher le dessin */
+    object-fit: contain; 
+    box-shadow: 0 0 10px rgba(0,0,0,0.1); 
 }
     </style>
 </head>
 <body>
     <script>
-        // On récupère le numéro du jour dans l'URL (ex: ?day=4)
         const params = new URLSearchParams(window.location.search);
         const day = params.get('day');
 
         if (day) {
-            // On charge dynamiquement le script du jour
             const s = document.createElement('script');
             s.src = `sketch copy ${day}.js`;
             document.body.appendChild(s);

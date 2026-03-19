@@ -13,7 +13,6 @@ const prompts = [
 
 const grid = document.getElementById('genuary-grid');
 
-// Génération des entrées du Dex
 prompts.forEach((prompt, index) => {
     const day = index + 1;
     const link = document.createElement('a');
@@ -25,22 +24,18 @@ prompts.forEach((prompt, index) => {
         <strong style="margin-top:5px">${prompt}</strong>
     `;
 
-    // Petit effet sonore au survol (optionnel)
     link.onmouseenter = () => animateLights();
     
     grid.appendChild(link);
 });
 
-// Animation des lumières du Pokédex
 function animateLights() {
     const bigLight = document.getElementById('main-light');
     const smallLights = document.querySelectorAll('.light');
 
-    // Faire flasher la grosse lampe bleue
     bigLight.style.filter = 'brightness(1.5)';
     setTimeout(() => bigLight.style.filter = 'brightness(1)', 150);
 
-    // Faire clignoter les petites lampes en séquence
     smallLights.forEach((light, i) => {
         setTimeout(() => {
             light.style.opacity = '0.3';
@@ -49,7 +44,6 @@ function animateLights() {
     });
 }
 
-// Animation de démarrage
 window.onload = () => {
     console.log("Pokedex Genuary Initialisé...");
     animateLights();

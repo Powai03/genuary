@@ -26,8 +26,6 @@
     let submitBtn, userInput, outputDiv;
 
     function preload() {
-      // Si ton autre page marche avec .rive, garde .rive ici.
-      // Le secret : on force le tri DIRECTEMENT après le chargement.
       bot.loadFile("dialogue.rive").then(() => {
           console.log("Fichier chargé.");
           bot.sortReplies(); 
@@ -45,7 +43,6 @@
       submitBtn.mousePressed(botChat);
     }
 
-    // p5.js gère le clavier globalement
     function keyPressed() {
       if (keyCode === ENTER) botChat();
     }
@@ -57,7 +54,6 @@
         u.class('userConvo');
         u.parent(outputDiv);
         
-        // On force le tri AVANT de demander la réponse (sécurité ultime)
         bot.sortReplies(); 
 
         bot.reply("local-user", input).then(function(reply) {
